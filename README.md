@@ -1,8 +1,7 @@
 # ArcOS
-A windows or linux baised (havent figured out yet) OS that is focus on minimalism and security.
+A Linux baised distro whith a modern and sleek UI and designed for security.
 
 # What even is this?
-this will be a windows or linux baised os, im not shure yet, but i have a alpha windows version, so i think i might be going whith windows, this will be coming in the late future.
-this is not coming any time soon.
+This will be a linux distro, and as of 6-1-24 i have started development whith ubuntu 24.04, so expect a ISO sooner or later.
 
 # So stay tuned when the first actual release relases!
