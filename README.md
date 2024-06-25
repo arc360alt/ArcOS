@@ -1,3 +1,5 @@
+# This project will be going on hiatis untill further notice, aka im to lazy to make this lol.
+
 # ArcOS
 A Linux baised distro whith a modern and sleek UI and designed for security.
 
