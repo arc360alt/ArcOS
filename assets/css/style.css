@@ -1,0 +1,72 @@
+/* @import "{{ site.theme }}";  this is the default */
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css";
+
+body {
+    background-color: #f0f0f0; /* Light gray background */
+    background-image: url('/arcsite/bg.png'); /* Path to your background image */
+    background-size: cover; /* Cover the whole page */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the image */
+    font-family: Arial, sans-serif; /* Optional: set a font for your site */
+    margin: 0; /* Optional: remove default margin */
+    padding: 0; /* Optional: remove default padding */
+}
+
+* {
+text-align: center;
+}
+
+.my-button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline-block */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Add some margin */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    border-radius: 12px; /* Rounded corners */
+    background-color: #4CAF50; /* Background color for non-hover state */
+}
+
+.my-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+body {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    /*
+    --color-canvas-default, copied from 
+    https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css
+    */
+    background-color: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    /* --color-canvas-default */
+    background-color: #0d1117;
+  }
+}
+
+.markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+}
+
+@media (max-width: 767px) {
+  .markdown-body {
+    padding: 15px;
+  }
+}
