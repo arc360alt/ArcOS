@@ -20,3 +20,6 @@ A Linux baised distro whith a modern and sleek UI and designed for security.
 ![2024-07-19 07_29_10-Window](https://github.com/user-attachments/assets/72ccdf12-e35c-4895-b558-989b5d5b6bca)
 ![2024-07-19 07_28_29-Window](https://github.com/user-attachments/assets/f6b79c74-07e4-48af-a811-3b7f4404c02d)
 ![2024-07-19 07_28_02-Window](https://github.com/user-attachments/assets/9a05220b-7c46-478d-bdb5-0b8cb09e7a6d)
+
+# Download (Remember, this is in beta)
+https://github.com/arc360alt/ArcOS/releases/tag/mainrele
