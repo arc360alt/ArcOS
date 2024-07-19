@@ -1,10 +1,9 @@
-# This project will be going on hiatis untill further notice, aka im to lazy to make this lol.
+# Im going to start working on this again, its gonna be linux baised 🤩
 
 # ArcOS
 A Linux baised distro whith a modern and sleek UI and designed for security.
 
 # What even is this?
-This will be a linux distro, and as of 6-1-24 i have started development whith ubuntu 24.04, so expect a ISO sooner or later.
-Bad update, eggs has stoped working, and the iso is 18gb for some reason. this will dely the launch to probibly next month or later this month.
+This will be a linux distro, and as of 7-18-24 im starting production on this OS again. after a month im making it again whith ubuntu.
 
 # So stay tuned when the first actual release relases!
