@@ -23,4 +23,4 @@ And this is a VERY BETA OS. so pleease dont daily drive this.
 ![2024-07-19 07_28_02-Window](https://github.com/user-attachments/assets/9a05220b-7c46-478d-bdb5-0b8cb09e7a6d)
 
 # Download (Remember, this is in beta)
-https://github.com/arc360alt/ArcOS/releases/tag/mainrele
+[https://github.com/arc360alt/ArcOS/releases/tag/mainrele](https://github.com/arc360alt/ArcOS/releases/tag/mainrele)
