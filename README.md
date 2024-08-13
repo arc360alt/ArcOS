@@ -6,14 +6,21 @@
 When you boot the live ISO, the password is just 1. just type 1 and you should login.
 And this is a VERY BETA OS. so pleease dont daily drive this.
 
-# Changelogs (Version 0.1)
-- THIS IS A BETA VERSION. DALY DRIVING IS NOT RECCOMENDED!!
-- Whole OS created.
-- Carmels is installed and fixed.
-- Installs corectly on most devices.
+# Changelogs (Version 0.2) ISO COMING VERY SOON
+- Fixed some stability issues
+- brand new minimal UI
+- now built off of Ubuntu 24.04
+- MORE BLUR!!!
+(note this uses alot of dynamic blur, so it wont run well on most systems)
+
+# Costomisation
+- You can go into the Extentions app to chage the following:
+- Change if you want the panel or dash to have static or dynamic blur
+- Chose to disable or anable the Dash or Panel, wahtever one you want
+- And of course changing the backround and installing your own stuf!
 
 # Tested Devices
-- Lower End Intel CPU ☑️
+- Intel CPU ☑️
 - VirtualBox ☑️
 - Any AMD Cpu ❔ (send me issue reports if AMD cpu's dont work)
 
