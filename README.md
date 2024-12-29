@@ -6,7 +6,7 @@
 When you boot the live ISO, the password is just 1. just type 1 and you should login.
 And this is a VERY BETA OS. so pleease dont daily drive this.
 
-# Changelogs (Version 0.2) ISO COMING VERY SOON
+# Changelogs (Version 0.2) Iso Files Lost, may remake soon tho
 - Fixed some stability issues
 - brand new minimal UI
 - now built off of Ubuntu 24.04
