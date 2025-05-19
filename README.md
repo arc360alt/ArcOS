@@ -12,6 +12,7 @@ New branding
 a bunch of new features
 more backgrounds
 bug fixes
+Arch Linux Baised
 
 # Tested Devices
 - Intel CPU ☑️
