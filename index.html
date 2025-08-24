@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArkOS - The Future of Linux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Sticky Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(26, 26, 46, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero-card {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(69, 183, 209, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-card h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        /* Laptop Section */
+        .laptop-section {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            overflow: hidden;
+            animation: slideInLeft 1s ease-out 0.3s both;
+        }
+
+        .laptop-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .laptop-image {
+            flex: 1;
+            position: relative;
+            min-height: 300px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .laptop-screen {
+            width: 80%;
+            height: 70%;
+            background: #000;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .os-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4ecdc4;
+            animation: moveUp 3s ease-in-out infinite;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .laptop-text {
+            flex: 1;
+        }
+
+        .laptop-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .laptop-text p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: #ffffff;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        /* Selling Points */
+        .selling-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .selling-point {
+            background: linear-gradient(135deg, rgba(69, 183, 209, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .selling-point:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .selling-point:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .selling-point:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.2);
+        }
+
+        .selling-point-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .selling-point h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .selling-point p {
+            color: #cccccc;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(69, 183, 209, 0.2) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .download-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .version-info {
+            margin: 1.5rem 0;
+            color: #cccccc;
+        }
+
+        .warning {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 2rem 0;
+            color: #ff6b6b;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(78, 205, 196, 0.8);
+            }
+        }
+
+        @keyframes moveUp {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(78, 205, 196, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(78, 205, 196, 0.3);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+            
+            .laptop-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .selling-points {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #45b7d1, #4ecdc4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="header" id="header">
+        <div class="nav-content">
+            <div class="logo">ArkOS</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#support">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-card" id="home">
+                <h1>ArkOS</h1>
+                <p>The next generation Linux-based operating system designed for modern computing. Experience the perfect blend of performance, security, and user-friendly design.</p>
+            </section>
+
+            <!-- Laptop Section -->
+            <section class="laptop-section" id="features">
+                <div class="laptop-container">
+                    <div class="laptop-image">
+                        <div class="laptop-screen">
+                            <div class="os-text">ArkOS</div>
+                        </div>
+                    </div>
+                    <div class="laptop-text">
+                        <h2>Powerful & Intuitive</h2>
+                        <p>Experience the future of Linux with ArkOS. Built from the ground up to provide an exceptional user experience while maintaining the power and flexibility that Linux users love.</p>
+                        <ul class="feature-list">
+                            <li>Nice looking UI</li>
+                            <li>Modern, customizable desktop environment</li>
+                            <li>Made for gaming</li>
+                            <li>Easy to update to newer versions</li>
+                            <li>Extensive software repository</li>
+                            <li>Professional development tools included</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Selling Points -->
+            <section class="selling-points">
+                <div class="selling-point">
+                    <div class="selling-point-image">🚀</div>
+                    <h3>Performance First</h3>
+                    <p>Work in Progress.</p>
+                </div>
+                <div class="selling-point">
+                    <div class="selling-point-image">🔒</div>
+                    <h3>Desktop Enviroment</h3>
+                    <p>Work in Progress.</p>
+                </div>
+                <div class="selling-point">
+                    <div class="selling-point-image">🎨</div>
+                    <h3>Beautiful Design</h3>
+                    <p>Work in Progress.</p>
+                </div>
+            </section>
+
+            <!-- Download Section -->
+            <section class="download-section" id="download">
+                <h2>Download ArkOS [BETA v0.0.0] Now!</h2>
+                <div class="version-info">
+                    <p>Current version: v0.0.0 Beta at Auguest 2025</p>
+                </div>
+                <div class="warning">
+                    <strong>WARNING:</strong> ArkOS is not meant to be a main OS. It is still in heavy development and has no way of updating the OS inside of your currently installed version of ArkOS. Install at your own risk.
+                </div>
+                <a href="#" class="download-btn" onclick="handleDownload()">Download Now!</a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2020-2025 Ark360 Studios - I make stuff</p>
+            <p>This website is still a heavy work in progress, and the OS isnt done yet. Most of the info is not correct.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky header effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Download button handler
+        function handleDownload() {
+            alert('Download would start here! Connect this to your actual download link.');
+        }
+
+        // Add some interactive elements on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.selling-point');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Add parallax effect to background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('body');
+            const speed = scrolled * 0.5;
+            parallax.style.backgroundPosition = `center ${speed}px`;
+        });
+    </script>
+</body>
+</html>
